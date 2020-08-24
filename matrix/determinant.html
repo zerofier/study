@@ -11,5 +11,19 @@
 		<p>`3 xx 3`の場合上記と同じサラスより方法以外余因子展開を進める</p>
 		<h3>余因子展開</h3>
 		<p>`det([[a_11, a_12, a_13], [a_21, a_22, a_23], [a_31, a_32, a_33]]) = (-1)^(1+1) det([[a_22, a_23],[a_32, a_33]]) + (-1)^(1+2)det([[a_21,a_23],[a_31, a_33]]) + (-1)^(1+3)det([[a_21,a_22],[a_31,a_32]])`</p>
+		<h3>行列式の性質</h3>
+		<ul>
+			<li><div><h4>性質1`det(A) = det(A^T)` (転置の性質)</h4></div></li>
+			<li><div><h4>性質2`det(A) = -1 det(B)` (行または列の入替性質)</h4></div></li>
+			<li><div><h4>性質3`det(C) = c det(A)` (行または列の定数倍性質)</h4></div></li>
+			<li><div><h4>性質4`det(A) = 0` (同じ行または列がある場合の性質)</h4></div></li>
+			<li><div><h4>性質5`det(A) = det(B) + det(C)` (行または列が和の性質)</h4>
+				<p>det[[a_11, a_12, cdots],[b_1 + c_1, b_2 + c_2, cdots],[a_31, a_32, cdots],[vdots,vdots,ddots]] = det[[a_11, a_12, cdots],[b_1, b_2, cdots],[a_31, a_32, cdots],[vdots,vdots,ddots]] + det[[a_11, a_12, cdots],[c_1, c_2, cdots],[a_31, a_32, cdots],[vdots,vdots,ddots]]</p>
+				</div></li>
+			<li><div><h4>性質6 性質3,4,5の複合 (行または列に定数倍して他の行または列に足しても行列式はかわらない)</h4>
+				<p></p>
+				</div></li>
+			<li><div><h4>性質7`det(AB) = det(B) * det(C)`積の行列式は行列式の積になる`</h4></div></li>
+		</ul>
 	</div>
 </body></html>
