@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>eigen</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script> 
+</head><body>
+	<div>
+		<h1>固有値と固有ベクトル</h1>
+		<h2>定義</h2>
+		<p>`Av = lambda v`正方行列`A`に対しこの式を満足するベクトル`v`とスカラー`lambda`が存在すると
+			<br />`v`を`A`の固有ベクトル`lambda`を固有値と呼ぶ</p>
+		<h3>求めかた</h3>
+		<p>定義により`(A - lambda I)v = 0`</p>
+		<p>`det(A - lambda I) = 0`式のなかの`lambda`をもとめて</p>
+		<p>例題：次の行列の固有値と固有ベクトルを求めよう</p>	
+		<p>`[[3,2,4],[2,0,2],[4,2,3]]`</p>
+		<p>`det([[3 - lambda, 2, 4],[2, 0 - lambda, 2], [4, 2, 3 - lambda]]) = 0`</p>
+		<p>余因子分解`(-1)^(1+1)(3-lambda)det([[0 - lambda, 2], [2, 3 - lambda]]) + (-1)^(1+2)2det([[2,2],[4,3 - lambda]]) + (-1)^(1+3)4det([[2, 0 - lambda],[4, 2]]) = 0`</p>
+		<p>`(3-lambda)((0 - lambda)(3 - lambda) - 2*2) + -2(2(3 - lambda) - 2*4) + 4(2 * 2 - 4(0 - lambda)) = 0`</p>
+		<p>`(3-lambda)((0 - lambda)(3 - lambda) - 2*2) + -2(2(3 - lambda) - 2*4) + 4(2 * 2 - 4(0 - lambda)) = 0`</p>
+	</div>
+</body></html>
