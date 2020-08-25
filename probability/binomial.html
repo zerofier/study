@@ -1,0 +1,21 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>2項分布</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script> 
+</head><body>
+	<div>
+		<p>コインを`n`回投げて表が`k`回出る確率は?</p>
+		<p>表が出る確率は`p`なので表ではない確率は`1-p`</p>
+		<p>`P[X=k] = _nC_k p^k (1-p)^(n-k)`</p>
+		
+		<p>`p^k`は表が`k`回出る確率</p>
+		<p>`(1-p)^(n-k)`は表がk回以上でない確率</p>
+		<p>`合せて`p^k (1-p)^(n-k)`表がk回だけ出る確率になる</p>
+		<p>出る順番は関係ないから全ての組み合わせを取る</p>
+		<p>`_nC_k`は`n`回中任意の`k`回の組合せ</p>
+		
+		<p>次はサイコロを投げましょう</p>
+	</div>
+</body></html>
