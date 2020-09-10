@@ -3,20 +3,91 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>determinant</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script> 
+<link rel="stylesheet" type="text/css" href="../res/css/simple.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+<script type="text/javascript">
+window.onload = function() {
+	let cav = document.getElementsByTagName("canvas");
+	if (! cav || cav.length == 0) {
+		console.log("Can't found canvas tag.");
+		return;
+	}
+	let ctx = cav[0].getContext("2d");
+	draw(ctx, cav[0].clientWidth, cav[0].clientHeight);
+}
+
+function draw(ctx, w, h) {
+	axis = {x: h * 0.8, y: w * 0.2};
+	ctx.strokeStyle = 'black';
+	
+	ctx.font = "italic 36px MJXc-TeX-math-Iw";
+	ctx.fillText("l", axis.y - 24, 36);
+	ctx.fillText("w", w - 36, axis.x + 24);
+	
+	// axis y
+	ctx.beginPath();
+	ctx.moveTo(0, axis.x);
+	ctx.lineTo(w, axis.x);
+	ctx.stroke();
+	
+	// axis y
+	ctx.beginPath();
+	ctx.moveTo(axis.y, 0);
+	ctx.lineTo(axis.y, h);
+	ctx.stroke();
+	
+	let x = -1.2;
+	ctx.beginPath();
+	ctx.moveTo(axis.y + x * 100, axis.x - e(x, 1.0, -3.0) * 100);
+	for (; x < 4.8; x += 0.01) {
+		ctx.lineTo(axis.y + x * 100, axis.x - e(x, 1.0, -3.0) * 100);
+	}
+	ctx.stroke();
+	
+	let y = e(1.5, 1.0, -3.0);
+	ctx.beginPath();
+	ctx.moveTo(axis.y + 150, axis.x - y * 100);
+	ctx.arc(axis.y + 150, axis.x - y * 100, 2, 0, Math.PI * 2);
+	ctx.fill();
+	
+	let g = del_w(1.5, 1.0, -3.0);
+	// tangent line
+	let t = function (x) {
+		return g * (x - 1.5) + y;
+	}
+	
+	ctx.strokeStyle = 'pink';
+	ctx.beginPath();
+	ctx.moveTo(axis.y - 120, axis.x - t(-1.2) * 100);
+	ctx.lineTo(axis.y + 480, axis.x - t( 4.8) * 100);
+	ctx.stroke();
+}
+
+function e(w, x, b)
+{
+	return Math.pow(w * x + b, 2) / 2.0;
+}
+
+function del_w(w, x, b)
+{
+	return (w * x + b) * x;
+}
+
+</script>
 </head><body>
 	<div class="container">
-		<p>関数`y = ax + b`</p>
-		<p>誤差関数`e = 1/2 (y - t)^2`</p>
-		<p>即ち`e = 1/2 (ax + b - t)^2`</p>
-		<p>に置いて勾配は誤差関数の微分である</p>
-		<p>`del/(del a)(1/2(ax + b - t)^2) = (ax + b - t)(x)`</p>
-		<p>`(ax + b - t)(x) = 0`の場合誤差関数は最小値になる</p>
-		<p>`ax^2 + (b - t)x = 0`</p>
-		<p>`ax^2 = (t - b)x`</p>
-		<p>`a = (t - b) / x`の時が誤差最小になる</p>
-		<p>`del/(del b)(1/2(ax + b - t)^2) = (ax + b - t)`から同様</p>
-		<p>`ax + b - t = 0`</p>
-		<p>`b = t - ax`の時が誤差最小になる</p>
+		<div class="col">
+			<p>関数`y = ax + b`</p>
+			<p>`t`は目標値</p>
+			<p>誤差関数`e = 1/2 (y - t)^2`</p>
+			<p>即ち`e = 1/2 (ax + b - t)^2`</p>
+			<p>に置いて勾配は誤差関数の微分である</p>
+			<p>`del/(del a)(1/2(ax + b - t)^2) = (ax + b - t)(x)`</p>
+			<p>`del/(del b)(1/2(ax + b - t)^2) = (ax + b - t)`から同様</p>
+		</div>
+		<div class="col">
+			<canvas width="600" height="600" style="margin-left: 2em"></canvas>
+			<div style="text-align: center;">誤差関数グラフ</div>
+		</div>
 	</div>
 </body></html>
